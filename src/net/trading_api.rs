@@ -145,7 +145,6 @@ impl TradeOgre {
         // Prepare the basic authentication header
         let auth_header_value = format!("Basic {}", base64::encode(format!("{}:{}", public_key, private_key)));
         // Define the POST data
-        println!("{}", market);
         let data = format!("market={}&price={}&quantity={}", market, price, quantity);
     
         let max_attempts = 5;
