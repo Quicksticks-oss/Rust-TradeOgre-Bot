@@ -1,6 +1,6 @@
 # TradeOgre Bot
 
-![trade ogre logo](https://raw.githubusercontent.com/Quicksticks-oss/TradeOgre-Bot-SSL/4816f976b3eac7ab24e34042f614003073ab6ce3/img/logo.svg?token=ASDGHTATK5ICZMHMU7KDHMTFWXBW4)
+![trade ogre logo](https://raw.githubusercontent.com/Quicksticks-oss/Rust-TradeOgre-Bot/c1623b631e94bc6f1a7a6a4c9276a329b9e6244f/img/logo.svg)
 
 A crypto trading bot designed for the TradeOgre exchange.
 
