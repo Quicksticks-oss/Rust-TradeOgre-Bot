@@ -282,22 +282,30 @@ fn main() {
                     fancy_log::good(&msg.to_string());
 
                     let bal = trade_api.get_balances(&curency_buy, api_key_priv, api_key_secret);
-                    let bal_val = &bal.as_str().expect("Could not get balance of curency_sell");
-                    let ret = trade_api.buy(&format!("{}-{}", curency_sell, curency_buy), bal_val, "0.1", &api_key_val, &api_sec_val);
-                    fancy_log::good(&format!("{}", ret));
+                    let ask_price: String = ticker["ask"].to_string();
+                    let ask_fp: f64 = convert_price(ask_price);
+                    let bal_num = (((convert_price(bal.to_string())/ask_fp)*100000.0).floor())/100000.0;
+                    let bal_val = &format!("{}", bal_num);
+                    let mkt = &format!("{}-{}", curency_sell, curency_buy);
+                    let ret = trade_api.buy(mkt, bal_val, &ask_fp.to_string(), &api_key_val, &api_sec_val);
+                    
+                    fancy_log::good(&format!("{}, {:?}, Quant: {}", ret, bal_num, bal_val));
                 } else if _buy_sell_hold == "hold".to_string() {
                     let msg = format!("Holding {} at price {:.2}!", market_val, price_fp).to_string();
                     fancy_log::medium(
                         &msg,
                     );
                 } else if _buy_sell_hold == "sell".to_string() {
-                    let msg = format!( "Selling {} at price {:.2}!", market_val, price_fp).to_string();
+                    let msg = format!("Selling {} at price {:.2}!", market_val, price_fp).to_string();
                     fancy_log::bad(&msg);
 
-                    let bal = trade_api.get_balances(curency_sell, api_key_priv, api_key_secret);
-                    let bal_val = &bal.as_str().expect("Could not get balance of curency_sell");
-                    let ret = trade_api.sell(&format!("{}-{}", curency_sell, curency_buy), bal_val, "0.1", &api_key_val, &api_sec_val);
-                    fancy_log::bad(&format!("{}", ret));
+                    let bal = trade_api.get_balances(&curency_sell, api_key_priv, api_key_secret);
+                    let ask_price: String = ticker["bid"].to_string();
+                    let ask_fp: f64 = convert_price(ask_price);
+                    let mkt = &format!("{}-{}", curency_sell, curency_buy);
+                    let ret = trade_api.sell(mkt, &bal.to_string(), &ask_fp.to_string(), &api_key_val, &api_sec_val);
+                    
+                    fancy_log::bad(&format!("{},{}", ret, bal));
                 }
 
                 last_action = _buy_sell_hold.clone();
