@@ -1,0 +1,24 @@
+/target
+converted_aapl.csv
+AAPL.csv
+output.csv
+.~lock.output.csv#
+output copy.csv
+points.txt
+combined.csv
+BTC.csv
+BTC-30m.csv
+.vcache
+USDT-BTC_log.csv
+USDT-BTC_log.txt
+AAPL_log.txt
+awd_log.csv
+log.txt
+status_log.txt
+config.toml
+log.csv
+config.toml
+config.toml
+config.toml
+Cargo.lock
+plot.py
