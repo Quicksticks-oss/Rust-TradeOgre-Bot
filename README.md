@@ -20,6 +20,12 @@ This trading bot is designed to automate trading on the TradeOgre exchange. It u
  * Rust (latest stable version)
  * API keys from TradeOgre
  * Basic understanding of trading and cryptocurrency markets
+ * Install the `cargo` package and its dependencies.
+
+Ubuntu:
+   ```bash
+   sudo apt install cargo
+   ```
 
 ### Installation
 1. Clone the repository: 
