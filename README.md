@@ -38,12 +38,12 @@ Ubuntu:
    ```
 3. Run install.sh:
     ```bash
-    ./install.sh
+    bash install.sh
     ```
 4. Usage
     To run the trading bot, run start.sh
     ```bash
-    ./start.sh
+     bash start.sh
     ```
 
 ### Strategy
